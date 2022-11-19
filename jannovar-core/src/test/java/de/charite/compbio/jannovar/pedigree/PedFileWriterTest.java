@@ -3,6 +3,7 @@ package de.charite.compbio.jannovar.pedigree;
 import com.google.common.base.Charsets;
 import com.google.common.collect.ImmutableList;
 import com.google.common.io.Files;
+import java.nio.file.Files;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ public class PedFileWriterTest {
 
 	@BeforeEach
 	public void setUp() throws IOException {
-		this.tmpFile = File.createTempFile("output", "ped");
+		this.tmpFile = Files.createTempFile("output", "ped").toFile();
 	}
 
 	@Test

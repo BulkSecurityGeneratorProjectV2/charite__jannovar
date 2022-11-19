@@ -1,6 +1,7 @@
 package de.charite.compbio.jannovar.pedigree;
 
 import com.google.common.collect.ImmutableList;
+import java.nio.file.Files;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,9 +19,9 @@ public class PedFileReaderTest {
 
 	@BeforeEach
 	public void setUp() throws IOException {
-		this.tmpFileWithHeader = File.createTempFile("with_header", "ped");
+		this.tmpFileWithHeader = Files.createTempFile("with_header", "ped").toFile();
 		writePedFileWithHeader(tmpFileWithHeader);
-		this.tmpFileWithoutHeader = File.createTempFile("without_header", "ped");
+		this.tmpFileWithoutHeader = Files.createTempFile("without_header", "ped").toFile();
 		writePedFileWithoutHeader(tmpFileWithoutHeader);
 	}
 
